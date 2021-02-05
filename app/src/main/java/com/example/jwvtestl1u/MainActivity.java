@@ -33,8 +33,8 @@ public class MainActivity extends AppCompatActivity {
     webView.setBackgroundColor(Color.CYAN);                    // now it is actual
     //webView.getSettings().setBuiltInZoomControls(true);         // allow zoom
     //webView.getSettings().setDisplayZoomControls(false);        // turn off zoom's controls
-    webView.loadUrl("http://www.google.com");
-    //webView.loadData("<html><body>Hi me.<hr/><button onclick='alert(10)'>Test</button></body></html>","text/html", "UTF-8");
+    //webView.loadUrl("http://www.google.com");
+    webView.loadData("<html><body>Hi me.<hr/><button onclick='alert(10)'>Test</button></body></html>","text/html", "UTF-8");
     //webView.loadData(HTML, "text/html", "UTF-8");
   }
 
