@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.webkit.JsResult;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
@@ -34,8 +35,9 @@ public class MainActivity extends AppCompatActivity {
     //webView.getSettings().setBuiltInZoomControls(true);         // allow zoom
     //webView.getSettings().setDisplayZoomControls(false);        // turn off zoom's controls
     //webView.loadUrl("http://www.google.com");
-    webView.loadData("<html><body>Hi me.<hr/><button onclick='alert(10)'>Test</button></body></html>","text/html", "UTF-8");
-    //webView.loadData(HTML, "text/html", "UTF-8");
+    //webView.loadData("<html><body>Hi me.<hr/><button onclick='alert(10)'>Test</button></body></html>","text/html", "UTF-8");
+    webView.loadData(HTML, "text/html", "UTF-8");
+    Log.d("Mx WebView", "\n\n" + HTML + "\n\n");
   }
 
   private String _htmlines(int lines) {
@@ -45,12 +47,14 @@ public class MainActivity extends AppCompatActivity {
     }
     return res;
   }
+  /*
+      "  <meta name=\"theme-color\" content=\"#000000\" />\n" +
+      "  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n" +
+   */
 
   private String HTML = "" +
       "<html>\n" +
       "  <meta charset=\"utf-8\" />\n" +
-      "  <meta name=\"theme-color\" content=\"#000000\" />\n" +
-      "  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n" +
       "  <title>L1U. List content</title>\n" +
       "<script>\n" +
       "  function onTest2() {\n" +
@@ -77,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
       "</script>\n" +
       "<body id='body_tag' onscroll='onBScroll();'>" +
       "  <div style='font-size:22px; color:black;'>" +
-      "    r01, L25. WebView Tests." +
+      "    r03, L25. WebView Tests." +
       "  </div>" +
       "  <button onclick='alert(10);'>alert(10)</button> &nbsp;&nbsp;&nbsp;&nbsp;" +
       "  <button onclick='onTest2();'>upper -> black</button><br/>" +
@@ -91,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
       "    <button onclick='window.scrollTo(0, 0);'>go top</button>\n" +
       "  <hr/>" +
       "  <div style='font-size:14px; color:blue;'>" +
-         _htmlines(75) +
+         _htmlines(115) +
       "  </div>" +
       "</body>" +
       "</html>";
