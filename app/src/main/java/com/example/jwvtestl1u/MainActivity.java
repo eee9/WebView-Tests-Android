@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     setContentView(R.layout.activity_main);
 
     webView = (WebView) findViewById(R.id.webView1);
+    /*
     webView.setWebChromeClient(new WebChromeClient() {
       // This is for html alert. By default it is disabled.
       @Override
@@ -27,17 +28,17 @@ public class MainActivity extends AppCompatActivity {
         return super.onJsAlert(view, url, message, result);
       }
     });
-
+    */
     webView.getSettings().setJavaScriptEnabled(true);           // for JS
-    webView.setWebViewClient(new WebViewClient());              // for all links in the WebView, not a browser intents
+    //webView.setWebViewClient(new WebViewClient());              // for all links in the WebView, not a browser intents
     webView.setWebChromeClient(new WebChromeClient());
-    webView.setBackgroundColor(Color.CYAN);                    // now it is actual
+    webView.setBackgroundColor(Color.GRAY);                    // now it is actual
     //webView.getSettings().setBuiltInZoomControls(true);         // allow zoom
     //webView.getSettings().setDisplayZoomControls(false);        // turn off zoom's controls
     //webView.loadUrl("http://www.google.com");
     //webView.loadData("<html><body>Hi me.<hr/><button onclick='alert(10)'>Test</button></body></html>","text/html", "UTF-8");
     webView.loadData(HTML, "text/html", "UTF-8");
-    Log.d("Mx WebView", "\n\n" + HTML + "\n\n");
+    //Log.d("Mx WebView", "\n\n" + HTML + "\n\n");
   }
 
   private String _htmlines(int lines) {
@@ -59,7 +60,8 @@ public class MainActivity extends AppCompatActivity {
       "<script>\n" +
       "  function onTest2() {\n" +
       "    var upper = document.getElementById('upper_div');\n" +
-      "    upper.style.color = 'black';\n" +
+      "    upper.style.color = 'black';" +
+      "    console.log(' ==> BLACK.');" +
       "  }\n" +
       "  function onTest3() {\n" +
       "    var body_tag = document.getElementById('body_tag');\n" +
@@ -73,6 +75,11 @@ public class MainActivity extends AppCompatActivity {
       "  function onTest4() {\n" +
       "    window.scrollTo(0, 321);\n" +
       "  }\n" +
+      "  function _alert() {\n" +
+      "    window.scrollTo(0, 21);\n" +
+      "    alert(\"Hi 5.\");\n" +
+      "    window.scrollTo(0, 22);\n" +
+      "  }\n" +
       "  function onBScroll() {\n" +
       "    var body_tag = document.getElementById('body_tag');\n" +
       "    var counter_tag = document.getElementById('counter_tag');\n" +
@@ -83,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
       "  <div style='font-size:22px; color:black;'>" +
       "    r03, L25. WebView Tests." +
       "  </div>" +
-      "  <button onclick='alert(10);'>alert(10)</button> &nbsp;&nbsp;&nbsp;&nbsp;" +
+      "  <button onclick='_alert();'>alert(10)</button> &nbsp;&nbsp;&nbsp;&nbsp;" +
       "  <button onclick='onTest2();'>upper -> black</button><br/>" +
       "  <button onclick='onTest3();'>body_tag.scrollTo({top: 123})</button><br/>" +
       "  <button onclick='window.scrollTo(0, 231);'>window.scrollTo(0, 231)</button>\n" +
